@@ -1,0 +1,3696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Md Sarfuddin Ansari | Engineering Portfolio
+    </title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- jsPDF LIBRARY -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+    </script>
+
+
+    <style>
+
+
+        /* =====================================
+           GLOBAL SETTINGS
+        ===================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: "Poppins", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #dbeafe,
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    #e0f2fe,
+                    transparent 35%
+                ),
+
+                #f8fafc;
+
+            color: #1e293b;
+
+            line-height: 1.6;
+
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: "Poppins", sans-serif;
+        }
+
+
+
+        /* =====================================
+           SIDEBAR
+        ===================================== */
+
+        .sidebar {
+
+            position: fixed;
+
+            left: 0;
+
+            top: 0;
+
+            width: 300px;
+
+            height: 100vh;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.95
+                );
+
+            backdrop-filter:
+                blur(20px);
+
+            border-right:
+                1px solid #e2e8f0;
+
+            padding:
+                35px 25px;
+
+            overflow-y:
+                auto;
+
+            z-index:
+                1000;
+
+        }
+
+
+        /* =====================================
+           PROFILE
+        ===================================== */
+
+        .profile-section {
+
+            text-align:
+                center;
+
+        }
+
+
+        .profile-img {
+
+            width:
+                150px;
+
+            height:
+                150px;
+
+            object-fit:
+                cover;
+
+            border-radius:
+                50%;
+
+            border:
+                5px solid #38bdf8;
+
+            padding:
+                5px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(
+                    56,
+                    189,
+                    248,
+                    0.3
+                );
+
+            transition:
+                0.4s;
+
+        }
+
+
+        .profile-img:hover {
+
+            transform:
+                scale(1.05)
+                rotate(3deg);
+
+        }
+
+
+        .profile-section h2 {
+
+            margin-top:
+                20px;
+
+            font-size:
+                23px;
+
+            color:
+                #0f172a;
+
+        }
+
+
+        /* =====================================
+           SIDEBAR TITLE
+        ===================================== */
+
+        .sidebar-title {
+
+            margin-top:
+                35px;
+
+            margin-bottom:
+                15px;
+
+            font-size:
+                22px;
+
+            color:
+                #0f172a;
+
+        }
+
+
+
+        /* =====================================
+           CONTACT BOX
+        ===================================== */
+
+        .contact-box {
+
+            padding:
+                15px;
+
+            border-radius:
+                12px;
+
+            margin-bottom:
+                12px;
+
+            font-size:
+                14px;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .contact-box:hover {
+
+            transform:
+                translateX(5px);
+
+        }
+
+
+        .phone {
+
+            background:
+                #dcfce7;
+
+            color:
+                #166534;
+
+        }
+
+
+        .email {
+
+            background:
+                #e0f2fe;
+
+            color:
+                #075985;
+
+            word-break:
+                break-word;
+
+        }
+
+
+
+        /* =====================================
+           SOCIAL BUTTONS
+        ===================================== */
+
+        .social-btn {
+
+            display:
+                block;
+
+            padding:
+                18px;
+
+            margin-bottom:
+                15px;
+
+            border-radius:
+                14px;
+
+            color:
+                white;
+
+            text-align:
+                center;
+
+            font-weight:
+                700;
+
+            font-size:
+                18px;
+
+            transition:
+                0.3s;
+
+            box-shadow:
+                0 8px 20px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.1
+                );
+
+        }
+
+
+        .social-btn:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.2
+                );
+
+        }
+
+
+
+        /* INSTAGRAM */
+
+        .instagram {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #833ab4,
+                    #fd1d1d,
+                    #fcb045
+                );
+
+        }
+
+
+
+        /* FACEBOOK */
+
+        .facebook {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #42a5f5,
+                    #1565c0
+                );
+
+        }
+
+
+
+        /* =====================================
+           DOWNLOAD RESUME BUTTON
+        ===================================== */
+
+        .resume-btn {
+
+            display:
+                block;
+
+            width:
+                100%;
+
+            border:
+                none;
+
+            margin-top:
+                25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #38bdf8,
+                    #2563eb
+                );
+
+            color:
+                white;
+
+            padding:
+                18px;
+
+            border-radius:
+                15px;
+
+            text-align:
+                center;
+
+            font-size:
+                17px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            box-shadow:
+                0 10px 25px
+                rgba(
+                    37,
+                    99,
+                    235,
+                    0.25
+                );
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .resume-btn:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 18px 35px
+                rgba(
+                    37,
+                    99,
+                    235,
+                    0.35
+                );
+
+        }
+
+
+        .resume-btn:active {
+
+            transform:
+                scale(0.97);
+
+        }
+
+
+
+        /* =====================================
+           MAIN CONTENT
+        ===================================== */
+
+        .main-content {
+
+            margin-left:
+                300px;
+
+            padding:
+                40px 6%;
+
+        }
+
+
+        section {
+
+            margin-bottom:
+                60px;
+
+        }
+
+
+
+        /* =====================================
+           HERO SECTION
+        ===================================== */
+
+        .hero {
+
+            min-height:
+                350px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(
+                        14,
+                        165,
+                        233,
+                        0.1
+                    ),
+
+                    rgba(
+                        37,
+                        99,
+                        235,
+                        0.05
+                    )
+                );
+
+            border-radius:
+                25px;
+
+            padding:
+                50px;
+
+            border:
+                1px solid #e0f2fe;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .hero::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                300px;
+
+            height:
+                300px;
+
+            background:
+                #38bdf8;
+
+            border-radius:
+                50%;
+
+            filter:
+                blur(100px);
+
+            opacity:
+                0.25;
+
+            top:
+                -100px;
+
+            right:
+                -100px;
+
+        }
+
+
+        .hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                50px;
+
+            color:
+                #0f172a;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                #0284c7;
+
+        }
+
+
+        .hero h3 {
+
+            font-size:
+                20px;
+
+            color:
+                #475569;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .hero p {
+
+            max-width:
+                750px;
+
+            color:
+                #475569;
+
+            font-size:
+                16px;
+
+        }
+
+
+
+        /* =====================================
+           HERO BUTTONS
+        ===================================== */
+
+        .hero-buttons {
+
+            margin-top:
+                25px;
+
+        }
+
+
+        .primary-btn {
+
+            display:
+                inline-block;
+
+            padding:
+                13px 25px;
+
+            border-radius:
+                10px;
+
+            background:
+                #0284c7;
+
+            color:
+                white;
+
+            font-weight:
+                600;
+
+            margin-right:
+                10px;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .primary-btn:hover {
+
+            background:
+                #0369a1;
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+
+        /* =====================================
+           SECTION TITLE
+        ===================================== */
+
+        .section-title {
+
+            font-size:
+                30px;
+
+            color:
+                #0f172a;
+
+            margin-bottom:
+                25px;
+
+            position:
+                relative;
+
+        }
+
+
+        .section-title::after {
+
+            content:
+                "";
+
+            display:
+                block;
+
+            width:
+                80px;
+
+            height:
+                4px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #38bdf8,
+                    #2563eb
+                );
+
+            border-radius:
+                10px;
+
+            margin-top:
+                8px;
+
+        }
+
+
+
+        /* =====================================
+           TABLE
+        ===================================== */
+
+        .table-container {
+
+            overflow-x:
+                auto;
+
+            background:
+                white;
+
+            border-radius:
+                18px;
+
+            box-shadow:
+                0 8px 30px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.06
+                );
+
+        }
+
+
+        table {
+
+            width:
+                100%;
+
+            border-collapse:
+                collapse;
+
+        }
+
+
+        th {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #0284c7,
+                    #2563eb
+                );
+
+            color:
+                white;
+
+            padding:
+                16px;
+
+            text-align:
+                left;
+
+        }
+
+
+        td {
+
+            padding:
+                16px;
+
+            border-bottom:
+                1px solid #e2e8f0;
+
+        }
+
+
+        tr:hover {
+
+            background:
+                #f0f9ff;
+
+        }
+
+
+
+        /* =====================================
+           SEMESTER DETAILS
+        ===================================== */
+
+        details {
+
+            background:
+                white;
+
+            margin-top:
+                25px;
+
+            padding:
+                25px;
+
+            border-radius:
+                18px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.05
+                );
+
+        }
+
+
+        summary {
+
+            font-size:
+                19px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            color:
+                #0284c7;
+
+        }
+
+
+        .semester {
+
+            margin-top:
+                35px;
+
+        }
+
+
+        .semester h3 {
+
+            margin-bottom:
+                15px;
+
+            color:
+                #0f172a;
+
+        }
+
+
+
+        /* =====================================
+           PROJECT GRID
+        ===================================== */
+
+        .project-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                25px;
+
+        }
+
+
+        .project-card {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.9
+                );
+
+            border-radius:
+                18px;
+
+            padding:
+                25px;
+
+            border:
+                1px solid #e2e8f0;
+
+            transition:
+                0.4s;
+
+            box-shadow:
+                0 5px 20px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.04
+                );
+
+        }
+
+
+        .project-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                0 20px 40px
+                rgba(
+                    14,
+                    165,
+                    233,
+                    0.15
+                );
+
+        }
+
+
+        .project-card h3 {
+
+            margin-bottom:
+                15px;
+
+            color:
+                #0f172a;
+
+        }
+
+
+        .project-card p {
+
+            color:
+                #475569;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .tech {
+
+            display:
+                inline-block;
+
+            background:
+                #e0f2fe;
+
+            color:
+                #0369a1;
+
+            padding:
+                8px 12px;
+
+            border-radius:
+                20px;
+
+            font-size:
+                13px;
+
+            margin-top:
+                10px;
+
+        }
+
+
+        .code-btn {
+
+            display:
+                inline-block;
+
+            margin-top:
+                15px;
+
+            background:
+                #0f172a;
+
+            color:
+                white;
+
+            padding:
+                10px 18px;
+
+            border-radius:
+                8px;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .code-btn:hover {
+
+            background:
+                #0284c7;
+
+        }
+
+
+
+        /* =====================================
+           ACHIEVEMENTS
+        ===================================== */
+
+        .achievement-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                20px;
+
+        }
+
+
+        .achievement-card {
+
+            background:
+                white;
+
+            padding:
+                25px;
+
+            border-radius:
+                18px;
+
+            border:
+                1px solid #e2e8f0;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .achievement-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.08
+                );
+
+        }
+
+
+        .achievement-card h3 {
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .achievement-card ul {
+
+            padding-left:
+                20px;
+
+        }
+
+
+
+        /* =====================================
+           TWO COLUMN
+        ===================================== */
+
+        .two-column {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                25px;
+
+        }
+
+
+        .info-card {
+
+            background:
+                white;
+
+            padding:
+                30px;
+
+            border-radius:
+                18px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.05
+                );
+
+        }
+
+
+        .info-card ul {
+
+            margin-top:
+                15px;
+
+            padding-left:
+                20px;
+
+        }
+
+
+
+        /* =====================================
+           CERTIFICATES
+        ===================================== */
+
+        .certificate {
+
+            background:
+                #f0fdf4;
+
+            padding:
+                15px;
+
+            margin-top:
+                12px;
+
+            border-radius:
+                10px;
+
+            border-left:
+                4px solid #22c55e;
+
+        }
+
+
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+
+            text-align:
+                center;
+
+            padding:
+                30px;
+
+            color:
+                #64748b;
+
+            border-top:
+                1px solid #e2e8f0;
+
+        }
+
+
+
+        /* =====================================
+           ANIMATION
+        ===================================== */
+
+        .fade-in {
+
+            animation:
+                fadeIn 1s ease;
+
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity:
+                    0;
+
+                transform:
+                    translateY(20px);
+
+            }
+
+
+            to {
+
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+
+        /* =====================================
+           MOBILE RESPONSIVE
+        ===================================== */
+
+        @media(max-width: 1000px) {
+
+            .sidebar {
+
+                position:
+                    relative;
+
+                width:
+                    100%;
+
+                height:
+                    auto;
+
+            }
+
+
+            .main-content {
+
+                margin-left:
+                    0;
+
+            }
+
+
+            .project-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .achievement-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .two-column {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .hero {
+
+                padding:
+                    30px 20px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    34px;
+
+            }
+
+
+            .main-content {
+
+                padding:
+                    25px 15px;
+
+            }
+
+
+            .section-title {
+
+                font-size:
+                    25px;
+
+            }
+
+        }
+
+
+    </style>
+
+
+</head>
+
+
+
+<body>
+
+
+<!-- =====================================
+     SIDEBAR
+===================================== -->
+
+<aside class="sidebar">
+
+
+    <!-- PROFILE -->
+
+    <div class="profile-section">
+
+        <img
+            src="my_photo.jpg"
+            alt="Md Sarfuddin Ansari"
+            class="profile-img"
+            onerror="
+                this.src='https://cdn-icons-png.flaticon.com/512/6840/6840478.png'
+            "
+        >
+
+        <h2>
+            Md Sarfuddin Ansari
+        </h2>
+
+    </div>
+
+
+
+    <!-- CONTACT -->
+
+    <h3 class="sidebar-title">
+
+        📞 Contact Me
+
+    </h3>
+
+
+    <div class="contact-box phone">
+
+        📞 <strong>Phone:</strong>
+
+        <br>
+
+        +91 8678054682
+
+    </div>
+
+
+    <div class="contact-box email">
+
+        📫 <strong>Email:</strong>
+
+        <br>
+
+        mdsarfuddinansari137@gmail.com
+
+    </div>
+
+
+
+    <!-- SOCIAL -->
+
+    <h3 class="sidebar-title">
+
+        🌐 Social Profiles
+
+    </h3>
+
+
+    <!-- INSTAGRAM -->
+
+    <a
+        href="https://instagram.com/jarvis_443"
+        target="_blank"
+        class="social-btn instagram"
+    >
+
+        📸 Instagram
+
+    </a>
+
+
+
+    <!-- FACEBOOK -->
+
+    <a
+        href="https://www.facebook.com/share/15js46CRzbo/"
+        target="_blank"
+        class="social-btn facebook"
+    >
+
+        📘 Facebook
+
+    </a>
+
+
+
+    <!-- DOWNLOAD RESUME -->
+
+    <button
+        onclick="downloadResume()"
+        class="resume-btn"
+    >
+
+        📥 Download Resume
+
+    </button>
+
+
+</aside>
+
+
+
+<!-- =====================================
+     MAIN CONTENT
+===================================== -->
+
+<main class="main-content">
+
+
+
+<!-- =====================================
+     HERO SECTION
+===================================== -->
+
+<section class="hero fade-in">
+
+
+    <div class="hero-content">
+
+
+        <h1>
+
+            MD
+
+            <span>
+
+                Sarfuddin Ansari
+
+            </span>
+
+        </h1>
+
+
+
+        <h3>
+
+            B.Tech Student |
+
+            Electrical & Electronics Engineering |
+
+            Robotics & IoT Developer
+
+        </h3>
+
+
+
+        <p>
+
+            Engineering student at
+
+            <strong>
+                Centurion University of Technology and Management
+            </strong>.
+
+            Focused on
+
+            <strong>
+                Embedded Systems (ESP32, ARM Cortex-M)
+            </strong>,
+
+            <strong>
+                IoT
+            </strong>,
+
+            and
+
+            <strong>
+                Machine Learning
+            </strong>.
+
+            Passionate about building hardware
+            that solves real-world industrial problems.
+
+        </p>
+
+
+
+        <div class="hero-buttons">
+
+
+            <a
+                href="#projects"
+                class="primary-btn"
+            >
+
+                🚀 View Projects
+
+            </a>
+
+
+
+            <a
+                href="#education"
+                class="primary-btn"
+            >
+
+                🎓 Education
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================
+     EDUCATION
+===================================== -->
+
+<section id="education">
+
+
+    <h2 class="section-title">
+
+        🎓 Academic Background
+
+    </h2>
+
+
+
+    <div class="table-container">
+
+
+        <table>
+
+
+            <thead>
+
+
+                <tr>
+
+                    <th>
+                        Qualification
+                    </th>
+
+                    <th>
+                        Institution
+                    </th>
+
+                    <th>
+                        Score / CGPA
+                    </th>
+
+                    <th>
+                        Year
+                    </th>
+
+                </tr>
+
+
+            </thead>
+
+
+
+            <tbody>
+
+
+                <tr>
+
+                    <td>
+                        UG B.Tech (EEE)
+                    </td>
+
+                    <td>
+                        Centurion University of Tech & Mgmt
+                    </td>
+
+                    <td>
+                        9.12 CGPA
+                    </td>
+
+                    <td>
+                        2024 - 2028
+                    </td>
+
+                </tr>
+
+
+
+                <tr>
+
+                    <td>
+                        Intermediate (XII)
+                    </td>
+
+                    <td>
+                        R.L.S.Y. College, Bettiah
+                    </td>
+
+                    <td>
+                        77.4 %
+                    </td>
+
+                    <td>
+                        2022 - 2024
+                    </td>
+
+                </tr>
+
+
+
+                <tr>
+
+                    <td>
+                        Matriculation (X)
+                    </td>
+
+                    <td>
+                        Arpa Intl School, Kalyanpur
+                    </td>
+
+                    <td>
+                        77.0 %
+                    </td>
+
+                    <td>
+                        2021 - 2022
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+
+<!-- =====================================
+     SEMESTER DETAILS
+===================================== -->
+
+<details>
+
+
+    <summary>
+
+        🔍 Semester-wise Subjects & Grades
+
+    </summary>
+
+
+
+<!-- SEMESTER 4 -->
+
+<div class="semester">
+
+
+<h3>
+
+    🏛️ Semester 4
+    (SGPA: 9.32)
+
+</h3>
+
+
+<div class="table-container">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Subject Code</th>
+
+<th>Subject Name</th>
+
+<th>Grade</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody>
+
+
+<tr>
+<td>CUTM1054</td>
+<td>Electrical Machine Operation and Control</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUTM1053</td>
+<td>System Modelling and Control</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUTM1039</td>
+<td>Embedded System using ARM Cortex</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUTM1003</td>
+<td>Complex Analysis & Numerical Methods</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUTM1023</td>
+<td>Smart Engineering Project (G2M)</td>
+<td>O</td>
+</tr>
+
+
+<tr>
+<td>CUTM1019</td>
+<td>Machine Learning Using Python</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUVA4060</td>
+<td>Gender, Human Rights And Ethics</td>
+<td>O</td>
+</tr>
+
+
+<tr>
+<td>CUTM3074</td>
+<td>Solar Lighting Technology</td>
+<td>O</td>
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- SEMESTER 3 -->
+
+<div class="semester">
+
+
+<h3>
+
+    🏛️ Semester 3
+    (SGPA: 9.20)
+
+</h3>
+
+
+<div class="table-container">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Subject Code</th>
+
+<th>Subject Name</th>
+
+<th>Grade</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+<td>CUTM1007</td>
+<td>Optics and Optical Fibres</td>
+<td>A</td>
+</tr>
+
+
+<tr>
+<td>CUTM1020</td>
+<td>Robotics Automation (ROS & C++)</td>
+<td>O</td>
+</tr>
+
+
+<tr>
+<td>CUTM1022</td>
+<td>System Integration with Dymola</td>
+<td>O</td>
+</tr>
+
+
+<tr>
+<td>CUTM1040</td>
+<td>VLSI Design</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUTM1043</td>
+<td>Network Analysis</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUTM3072</td>
+<td>Yoga and Meditation</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUCS1004</td>
+<td>Java Programming</td>
+<td>E</td>
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- SEMESTER 2 -->
+
+<div class="semester">
+
+
+<h3>
+
+    🏛️ Semester 2
+    (SGPA: 9.30)
+
+</h3>
+
+
+<div class="table-container">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Subject Code</th>
+
+<th>Subject Name</th>
+
+<th>Grade</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+<td>CUTM1002</td>
+<td>Laplace & Fourier Transform</td>
+<td>O</td>
+</tr>
+
+
+<tr>
+<td>CUTM1046</td>
+<td>Electronic Devices & Systems</td>
+<td>A</td>
+</tr>
+
+
+<tr>
+<td>CUCS1002</td>
+<td>Data Structures</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUTM1674</td>
+<td>Environmental Science</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUTM1018</td>
+<td>Data Analysis (Python)</td>
+<td>O</td>
+</tr>
+
+
+<tr>
+<td>CUTM3086</td>
+<td>Vermicomposting</td>
+<td>O</td>
+</tr>
+
+
+<tr>
+<td>CUVA4064</td>
+<td>Human Values</td>
+<td>E</td>
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- SEMESTER 1 -->
+
+<div class="semester">
+
+
+<h3>
+
+    🏛️ Semester 1
+    (SGPA: 8.50)
+
+</h3>
+
+
+<div class="table-container">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Subject Code</th>
+
+<th>Subject Name</th>
+
+<th>Grade</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+<td>CUEE1010</td>
+<td>Basic Electrical Engineering</td>
+<td>E</td>
+</tr>
+
+
+<tr>
+<td>CUCS1001</td>
+<td>Programming in C</td>
+<td>A</td>
+</tr>
+
+
+<tr>
+<td>CUTM1008</td>
+<td>Applied Analytical Chemistry</td>
+<td>A</td>
+</tr>
+
+
+<tr>
+<td>CUTM1001</td>
+<td>Diff Equation & Linear Algebra</td>
+<td>E</td>
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- SCHOOL MARKS -->
+
+<div class="semester">
+
+
+<h3>
+
+    🏫 School Subject Marks
+
+</h3>
+
+
+
+<div class="two-column">
+
+
+<!-- XII -->
+
+<div class="table-container">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th colspan="2">
+
+    XII (Intermediate)
+
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+
+<td>Physics</td>
+
+<td>65</td>
+
+</tr>
+
+
+<tr>
+
+<td>Chemistry</td>
+
+<td>70</td>
+
+</tr>
+
+
+<tr>
+
+<td>Math</td>
+
+<td>88</td>
+
+</tr>
+
+
+<tr>
+
+<td>English</td>
+
+<td>85</td>
+
+</tr>
+
+
+<tr>
+
+<td>Hindi</td>
+
+<td>79</td>
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+<!-- X -->
+
+<div class="table-container">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th colspan="2">
+
+    X (Matriculation)
+
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+
+<td>Science</td>
+
+<td>84</td>
+
+</tr>
+
+
+<tr>
+
+<td>Math</td>
+
+<td>84</td>
+
+</tr>
+
+
+<tr>
+
+<td>SST</td>
+
+<td>64</td>
+
+</tr>
+
+
+<tr>
+
+<td>English</td>
+
+<td>73</td>
+
+</tr>
+
+
+<tr>
+
+<td>Hindi</td>
+
+<td>80</td>
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</details>
+
+
+</section>
+
+
+
+<!-- =====================================
+     PROJECTS
+===================================== -->
+
+<section id="projects">
+
+
+<h2 class="section-title">
+
+    🚀 Key Engineering Projects
+
+</h2>
+
+
+
+<div class="project-grid">
+
+
+<!-- PROJECT 1 -->
+
+<div class="project-card">
+
+
+<h3>
+
+    🏎️ Autonomous Robo Car
+
+</h3>
+
+
+<p>
+
+    Self-driving car with obstacle avoidance
+    and live telemetry via ESP32.
+
+</p>
+
+
+<span class="tech">
+
+    C++ • Radar • PID • Web Dashboard
+
+</span>
+
+
+<br>
+
+
+<a
+    href="https://github.com/jarvis_443"
+    target="_blank"
+    class="code-btn"
+>
+
+    💻 View Code
+
+</a>
+
+
+</div>
+
+
+
+<!-- PROJECT 2 -->
+
+<div class="project-card">
+
+
+<h3>
+
+    📊 Student Performance Prediction
+
+</h3>
+
+
+<p>
+
+    ML model forecasting academic risks
+    based on behavioral data.
+
+</p>
+
+
+<span class="tech">
+
+    Python • Scikit-learn • KNN • Pandas
+
+</span>
+
+
+</div>
+
+
+
+<!-- PROJECT 3 -->
+
+<div class="project-card">
+
+
+<h3>
+
+    📡 Remote Industrial Control
+
+</h3>
+
+
+<p>
+
+    IoT dashboard for controlling
+    machinery relays remotely.
+
+</p>
+
+
+<span class="tech">
+
+    Blynk • ESP32 • WiFi Protocols
+
+</span>
+
+
+</div>
+
+
+
+<!-- PROJECT 4 -->
+
+<div class="project-card">
+
+
+<h3>
+
+    🏭 IoT-Based DC MG Set Monitor
+
+</h3>
+
+
+<p>
+
+    Industrial monitoring system
+    for motor-generator health tracking.
+
+</p>
+
+
+<span class="tech">
+
+    Arduino • ThingSpeak • ESP8266
+
+</span>
+
+
+<br>
+
+
+<a
+    href="https://thingspeak.com"
+    target="_blank"
+    class="code-btn"
+>
+
+    📊 Live Dashboard
+
+</a>
+
+
+</div>
+
+
+
+<!-- PROJECT 5 -->
+
+<div class="project-card">
+
+
+<h3>
+
+    ☀️ Solar-Powered Dewatering
+
+</h3>
+
+
+<p>
+
+    Renewable energy implementation
+    for mining pump operations.
+
+</p>
+
+
+<span class="tech">
+
+    Solar PV • Power Electronics
+
+</span>
+
+
+</div>
+
+
+
+<!-- PROJECT 6 -->
+
+<div class="project-card">
+
+
+<h3>
+
+    ⚡ MG Set Production Monitoring
+
+</h3>
+
+
+<p>
+
+    High-accuracy firmware
+    for tracking motor parameters
+    in real-time.
+
+</p>
+
+
+<span class="tech">
+
+    Embedded C • ARM Cortex-M
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================
+     ACHIEVEMENTS
+===================================== -->
+
+<section>
+
+
+<h2 class="section-title">
+
+    🏅 Beyond Engineering:
+    Leadership & Achievements
+
+</h2>
+
+
+
+<div class="achievement-grid">
+
+
+<!-- NCC -->
+
+<div class="achievement-card">
+
+
+<h3>
+
+    🎖️ NCC Cadet
+
+</h3>
+
+
+<p>
+
+    Active Cadet in the
+
+    <strong>
+
+        National Cadet Corps (NCC)
+
+    </strong>.
+
+</p>
+
+
+<ul>
+
+
+<li>
+
+<strong>
+
+    Training:
+
+</strong>
+
+Drill, Map Reading
+and Weapon Training.
+
+</li>
+
+
+<li>
+
+<strong>
+
+    Impact:
+
+</strong>
+
+Participated in social service camps
+and Republic Day parades.
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+<!-- COMPETITIVE -->
+
+<div class="achievement-card">
+
+
+<h3>
+
+    📚 Competitive Exams
+
+</h3>
+
+
+<p>
+
+<strong>
+
+    Merchant Navy Aspirant
+
+</strong>
+
+</p>
+
+
+<p>
+
+Currently preparing for
+National Level technical exams.
+
+</p>
+
+
+<ul>
+
+
+<li>
+
+<strong>
+
+    Focus:
+
+</strong>
+
+Power Systems & Control Theory.
+
+</li>
+
+
+<li>
+
+<strong>
+
+    Goal:
+
+</strong>
+
+Pursuing advanced research
+in Robotics.
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+<!-- AWARDS -->
+
+<div class="achievement-card">
+
+
+<h3>
+
+    🏆 Medals & Awards
+
+</h3>
+
+
+<ul>
+
+
+<li>
+
+<strong>
+
+1st Prize:
+
+</strong>
+
+District Level Math Test
+Talent Search Competitive Exam
+(2023).
+
+</li>
+
+
+<li>
+
+<strong>
+
+Cert of Merit:
+
+</strong>
+
+Academic Excellence
+in creative writing competition
+and Speaking Debate Competition.
+
+</li>
+
+
+<li>
+
+<strong>
+
+Anchoring:
+
+</strong>
+
+Gold Medalist in Anchoring
+and Elocution Competition
+at College Level.
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================
+     HOBBIES & CERTIFICATIONS
+===================================== -->
+
+<section>
+
+
+<div class="two-column">
+
+
+<!-- HOBBIES -->
+
+<div class="info-card">
+
+
+<h2>
+
+    🎨 Hobbies & Interests
+
+</h2>
+
+
+<p>
+
+When I'm not debugging code
+or at NCC drills, I enjoy:
+
+</p>
+
+
+<ul>
+
+
+<li>
+
+📸
+
+<strong>
+
+Cooking:
+
+</strong>
+
+Cooking food for family
+and exploring different
+varieties of food.
+
+</li>
+
+
+<br>
+
+
+<li>
+
+🏸
+
+<strong>
+
+Chess:
+
+</strong>
+
+Maintaining thinking agility.
+
+</li>
+
+
+<br>
+
+
+<li>
+
+📖
+
+<strong>
+
+Anchoring and Hosting:
+
+</strong>
+
+Participating in College Events.
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+<!-- CERTIFICATIONS -->
+
+<div class="info-card">
+
+
+<h2>
+
+    📜 Special Certifications
+
+</h2>
+
+
+<p>
+
+Broadening my skill set
+beyond my college curriculum:
+
+</p>
+
+
+
+<div class="certificate">
+
+    ✅
+
+    <strong>
+
+        Full-Stack Development
+
+    </strong>
+
+    - Coursera
+
+</div>
+
+
+
+<div class="certificate">
+
+    ✅
+
+    <strong>
+
+        Advanced Robotics & ROS
+
+    </strong>
+
+    - Udemy
+
+</div>
+
+
+
+<div class="certificate">
+
+    ✅
+
+    <strong>
+
+        Human Rights & Ethics
+
+    </strong>
+
+    - University Honours Program
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+
+<p>
+
+    © 2026 Md Sarfuddin Ansari |
+
+    Built with HTML, CSS & JavaScript
+
+</p>
+
+
+</footer>
+
+
+</main>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+
+/* =====================================
+   DOWNLOAD RESUME FUNCTION
+===================================== */
+
+function downloadResume() {
+
+
+    /* GET jsPDF */
+
+    const { jsPDF } =
+        window.jspdf;
+
+
+    /* CREATE PDF */
+
+    const doc =
+        new jsPDF();
+
+
+    /* START POSITION */
+
+    let y = 20;
+
+
+    /* =====================================
+       PAGE SETTINGS
+    ===================================== */
+
+    const pageHeight =
+        280;
+
+
+    const leftMargin =
+        20;
+
+
+    const contentWidth =
+        170;
+
+
+
+    /* =====================================
+       CHECK PAGE
+    ===================================== */
+
+    function checkPage() {
+
+
+        if (
+            y > pageHeight
+        ) {
+
+            doc.addPage();
+
+            y = 20;
+
+        }
+
+    }
+
+
+
+    /* =====================================
+       ADD SECTION TITLE
+    ===================================== */
+
+    function addTitle(title) {
+
+
+        checkPage();
+
+
+        doc.setFontSize(
+            15
+        );
+
+
+        doc.setTextColor(
+            2,
+            132,
+            199
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.text(
+            title,
+            leftMargin,
+            y
+        );
+
+
+        y += 8;
+
+
+        /* LINE */
+
+        doc.setDrawColor(
+            56,
+            189,
+            248
+        );
+
+
+        doc.line(
+            leftMargin,
+            y,
+            190,
+            y
+        );
+
+
+        y += 8;
+
+    }
+
+
+
+    /* =====================================
+       ADD NORMAL TEXT
+    ===================================== */
+
+    function addText(text) {
+
+
+        checkPage();
+
+
+        doc.setFontSize(
+            10
+        );
+
+
+        doc.setTextColor(
+            40,
+            40,
+            40
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "normal"
+        );
+
+
+        const lines =
+            doc.splitTextToSize(
+                text,
+                contentWidth
+            );
+
+
+        lines.forEach(
+            function(line) {
+
+
+                checkPage();
+
+
+                doc.text(
+                    line,
+                    leftMargin,
+                    y
+                );
+
+
+                y += 6;
+
+            }
+        );
+
+
+        y += 4;
+
+    }
+
+
+
+    /* =====================================
+       HEADER
+    ===================================== */
+
+    doc.setFontSize(
+        24
+    );
+
+
+    doc.setTextColor(
+        15,
+        23,
+        42
+    );
+
+
+    doc.setFont(
+        "helvetica",
+        "bold"
+    );
+
+
+    doc.text(
+        "MD SARFUDDIN ANSARI",
+        leftMargin,
+        y
+    );
+
+
+    y += 12;
+
+
+
+    doc.setFontSize(
+        11
+    );
+
+
+    doc.setTextColor(
+        2,
+        132,
+        199
+    );
+
+
+    doc.text(
+        "B.Tech Student | Electrical & Electronics Engineering",
+        leftMargin,
+        y
+    );
+
+
+    y += 7;
+
+
+    doc.text(
+        "Robotics & IoT Developer",
+        leftMargin,
+        y
+    );
+
+
+    y += 15;
+
+
+
+    /* =====================================
+       CONTACT
+    ===================================== */
+
+    addTitle(
+        "CONTACT INFORMATION"
+    );
+
+
+    addText(
+        "Phone: +91 8678054682"
+    );
+
+
+    addText(
+        "Email: mdsarfuddinansari137@gmail.com"
+    );
+
+
+    addText(
+        "Instagram: instagram.com/jarvis_443"
+    );
+
+
+    addText(
+        "Facebook: facebook.com/share/15js46CRzbo/"
+    );
+
+
+
+    /* =====================================
+       PROFILE
+    ===================================== */
+
+    addTitle(
+        "PROFILE"
+    );
+
+
+    addText(
+
+        "Engineering student at Centurion University of Technology and Management. " +
+
+        "Focused on Embedded Systems including ESP32 and ARM Cortex-M, " +
+
+        "IoT and Machine Learning. " +
+
+        "Passionate about building hardware and intelligent systems " +
+
+        "that solve real-world industrial problems."
+
+    );
+
+
+
+    /* =====================================
+       EDUCATION
+    ===================================== */
+
+    addTitle(
+        "ACADEMIC BACKGROUND"
+    );
+
+
+    addText(
+
+        "UG B.Tech (Electrical & Electronics Engineering)\n" +
+
+        "Centurion University of Technology & Management\n" +
+
+        "CGPA: 9.12\n" +
+
+        "Year: 2024 - 2028"
+
+    );
+
+
+    addText(
+
+        "Intermediate (XII)\n" +
+
+        "R.L.S.Y. College, Bettiah\n" +
+
+        "Score: 77.4%\n" +
+
+        "Year: 2022 - 2024"
+
+    );
+
+
+    addText(
+
+        "Matriculation (X)\n" +
+
+        "Arpa International School, Kalyanpur\n" +
+
+        "Score: 77.0%\n" +
+
+        "Year: 2021 - 2022"
+
+    );
+
+
+
+    /* =====================================
+       ACADEMIC PERFORMANCE
+    ===================================== */
+
+    addTitle(
+        "ACADEMIC PERFORMANCE"
+    );
+
+
+    addText(
+        "Semester 4 - SGPA: 9.32"
+    );
+
+
+    addText(
+        "Semester 3 - SGPA: 9.20"
+    );
+
+
+    addText(
+        "Semester 2 - SGPA: 9.30"
+    );
+
+
+    addText(
+        "Semester 1 - SGPA: 8.50"
+    );
+
+
+
+    /* =====================================
+       TECHNICAL SKILLS
+    ===================================== */
+
+    addTitle(
+        "TECHNICAL SKILLS"
+    );
+
+
+    addText(
+        "Programming: C, C++, Java, Python, Embedded C"
+    );
+
+
+    addText(
+        "Embedded Systems: ESP32, ARM Cortex-M, Arduino, ESP8266"
+    );
+
+
+    addText(
+        "IoT: Blynk, ThingSpeak, WiFi Protocols"
+    );
+
+
+    addText(
+        "Machine Learning: Python, Pandas, Scikit-learn, KNN"
+    );
+
+
+    addText(
+        "Engineering: Robotics, PID Control, Power Electronics, Solar PV"
+    );
+
+
+
+    /* =====================================
+       PROJECTS
+    ===================================== */
+
+    addTitle(
+        "KEY ENGINEERING PROJECTS"
+    );
+
+
+    addText(
+
+        "1. Autonomous Robo Car\n" +
+
+        "Self-driving car with obstacle avoidance and live telemetry via ESP32.\n" +
+
+        "Technologies: C++, Radar, PID, Web Dashboard."
+
+    );
+
+
+    addText(
+
+        "2. Student Performance Prediction\n" +
+
+        "Machine Learning model forecasting academic risks based on behavioral data.\n" +
+
+        "Technologies: Python, Scikit-learn, KNN, Pandas."
+
+    );
+
+
+    addText(
+
+        "3. Remote Industrial Control\n" +
+
+        "IoT dashboard for controlling machinery relays remotely.\n" +
+
+        "Technologies: Blynk, ESP32, WiFi Protocols."
+
+    );
+
+
+    addText(
+
+        "4. IoT-Based DC MG Set Monitor\n" +
+
+        "Industrial monitoring system for motor-generator health tracking.\n" +
+
+        "Technologies: Arduino, ThingSpeak, ESP8266."
+
+    );
+
+
+    addText(
+
+        "5. Solar-Powered Dewatering\n" +
+
+        "Renewable energy implementation for mining pump operations.\n" +
+
+        "Domain: Solar PV, Power Electronics."
+
+    );
+
+
+    addText(
+
+        "6. MG Set Production Monitoring\n" +
+
+        "High-accuracy firmware for tracking motor parameters in real-time.\n" +
+
+        "Technologies: Embedded C, ARM Cortex-M."
+
+    );
+
+
+
+    /* =====================================
+       ACHIEVEMENTS
+    ===================================== */
+
+    addTitle(
+        "ACHIEVEMENTS & LEADERSHIP"
+    );
+
+
+    addText(
+
+        "NCC Cadet\n" +
+
+        "Active Cadet in the National Cadet Corps (NCC). " +
+
+        "Developed discipline, leadership, teamwork and selfless service."
+
+    );
+
+
+    addText(
+
+        "Merchant Navy Aspirant\n" +
+
+        "Currently preparing for National Level technical exams."
+
+    );
+
+
+    addText(
+
+        "1st Prize - District Level Math Test Talent Search " +
+
+        "Competitive Exam (2023)."
+
+    );
+
+
+    addText(
+
+        "Certificate of Merit for Academic Excellence, " +
+
+        "Creative Writing and Speaking Debate Competition."
+
+    );
+
+
+    addText(
+
+        "Gold Medalist in Anchoring and Elocution Competition " +
+
+        "at College Level."
+
+    );
+
+
+
+    /* =====================================
+       HOBBIES
+    ===================================== */
+
+    addTitle(
+        "HOBBIES & INTERESTS"
+    );
+
+
+    addText(
+        "Cooking and exploring different varieties of food."
+    );
+
+
+    addText(
+        "Chess and strategic thinking."
+    );
+
+
+    addText(
+        "Anchoring and Hosting College Events."
+    );
+
+
+
+    /* =====================================
+       CERTIFICATIONS
+    ===================================== */
+
+    addTitle(
+        "SPECIAL CERTIFICATIONS"
+    );
+
+
+    addText(
+        "Full-Stack Development - Coursera"
+    );
+
+
+    addText(
+        "Advanced Robotics & ROS - Udemy"
+    );
+
+
+    addText(
+        "Human Rights & Ethics - University Honours Program"
+    );
+
+
+
+    /* =====================================
+       FOOTER ON ALL PAGES
+    ===================================== */
+
+    const totalPages =
+        doc.internal.getNumberOfPages();
+
+
+    for (
+        let i = 1;
+
+        i <= totalPages;
+
+        i++
+    ) {
+
+
+        doc.setPage(i);
+
+
+        doc.setFontSize(
+            8
+        );
+
+
+        doc.setTextColor(
+            100,
+            116,
+            139
+        );
+
+
+        doc.text(
+
+            "Md Sarfuddin Ansari | Engineering Portfolio",
+
+            20,
+
+            290
+
+        );
+
+
+        doc.text(
+
+            "Page " + i + " of " + totalPages,
+
+            160,
+
+            290
+
+        );
+
+    }
+
+
+
+    /* =====================================
+       DOWNLOAD PDF
+    ===================================== */
+
+    doc.save(
+        "Md_Sarfuddin_Ansari_Resume.pdf"
+    );
+
+
+}
+
+
+
+/* =====================================
+   CARD ANIMATION
+===================================== */
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    function () {
+
+
+        const cards =
+
+            document.querySelectorAll(
+
+                ".project-card, .achievement-card, .info-card"
+
+            );
+
+
+        cards.forEach(
+
+            function(
+                card,
+                index
+            ) {
+
+
+                card.style.opacity =
+                    "0";
+
+
+                card.style.transform =
+                    "translateY(20px)";
+
+
+                setTimeout(
+
+                    function () {
+
+
+                        card.style.transition =
+                            "0.6s";
+
+
+                        card.style.opacity =
+                            "1";
+
+
+                        card.style.transform =
+                            "translateY(0)";
+
+
+                    },
+
+                    index * 100
+
+                );
+
+
+            }
+
+        );
+
+
+    }
+
+);
+
+
+</script>
+
+
+</body>
+
+
+</html>
